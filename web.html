@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>My Kendo UI Application</title>
+
+	<!-- CDN-based stylesheet references for Kendo UI Web -->
+	<link rel="stylesheet" href="http://cdn.kendostatic.com/2012.1.704/styles/kendo.common.min.css">
+	<link rel="stylesheet" href="http://cdn.kendostatic.com/2012.1.704/styles/kendo.default.min.css">
+
+</head>
+<body>
+	<header>
+		<h1>My Kendo UI Application</h1>
+	</header>
+	<!-- page content goes here -->
+	<div role="main">
+		<!-- AutoComplete widget; initialized and configured via jQuery selector -->
+		<p>Animal: <input id="animalAutoComplete" /></p>
+		<!-- AutoComplete widget; initialized and configured via data-* attributes -->
+		<p>Country: <input id="countryAutoComplete" data-role="autocomplete" data-source="countries" /></p>
+	</div>
+	<footer>
+		<p>Kendo UI FTW!</p>
+	</footer>
+
+	<!-- CDN-based script reference for jQuery; utilizing a local reference if offline -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+
+	<!-- CDN-based script reference for Kendo UI DataViz; utilizing a local reference if offline -->
+	<script src="http://cdn.kendostatic.com/2012.1.704/js/kendo.web.min.js"></script>
+	<script>(window.kendo && window.kendo.dataviz) || document.write('<script src="js/kendo.web.min.js"><\/script>')</script>
+
+	<script>
+		var countries = [ "Australia", "Canada", "United States of America" ];
+
+		// .ready() to initialise and configuration widget(s)
+		jQuery(document).ready(function($) {
+			$("#animalAutoComplete").kendoAutoComplete([ "Ant", "Antilope", "Badger", "Beaver", "Bird" ]);
+			kendo.init($("#countryAutoComplete"));
+		});
+	</script>
+
+</body>
+</html>

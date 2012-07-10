@@ -4,14 +4,15 @@
 	<meta charset="utf-8">
 	<title>My Kendo UI Application</title>
 
-	<!-- contains a small number of CSS rules and classes for styling charts and gauges -->
-	<link rel="stylesheet" href="//cdn.kendostatic.com/2012.2.621/styles/kendo.dataviz.min.css">
+	<!-- CDN-based stylesheet reference for Kendo UI DataViz -->
+	<link rel="stylesheet" href="http://cdn.kendostatic.com/2012.1.704/styles/kendo.dataviz.min.css">
 
 </head>
 <body>
 	<header>
 		<h1>My Kendo UI Application</h1>
 	</header>
+	<!-- page content goes here -->
 	<div role="main">
 		<!-- chart/gauge -->
 		<div id="chart">
@@ -21,19 +22,24 @@
 		<p>Kendo UI FTW!</p>
 	</footer>
 
-	<!-- Google CDN reference for jQuery; utilizing a local reference if offline -->
+	<!-- CDN-based script reference for jQuery; utilizing a local reference if offline -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
 
-	<!-- Kendo UI CDN reference for DataViz; utilizing a local reference if offline -->
-	<script src="//cdn.kendostatic.com/2012.2.621/js/kendo.dataviz.min.js"></script>
+	<!-- CDN-based script reference for Kendo UI DataViz; utilizing a local reference if offline -->
+	<script src="http://cdn.kendostatic.com/2012.1.704/js/kendo.dataviz.min.js"></script>
 	<script>(window.kendo && window.kendo.dataviz) || document.write('<script src="js/kendo.dataviz.min.js"><\/script>')</script>
 
 	<script>
 		// .ready() to initialise and configuration chart/gauge
 		jQuery(document).ready(function($) {
 			$("#chart").kendoChart({
-				// configuration properties and settings go here
+				series: [
+					{ name: "United States", data: [67.96, 68.93, 75, 74, 78] },
+					{ name: "World", data: [15.7, 16.7, 20, 23.5, 26.6] }
+				],
+				seriesDefaults: { type: "area" },
+				width: 400
 			});
 		});
 	</script>
